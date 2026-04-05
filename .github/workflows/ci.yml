@@ -26,4 +26,4 @@ jobs:
 
         - name: hello
 
-          run: echoHello
+          run: echo hello
