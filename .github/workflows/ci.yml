@@ -1,4 +1,4 @@
-name: my first pipeline
+name: My first pipeline
 
 on: push
 
@@ -10,21 +10,14 @@ jobs:
 
     steps:
 
-        - name: uptime
+      - name: checkout code
 
-          run: uptime
+        uses: actions/checkout@v4 
 
-        - name: check no of processors
+      - name: Build image
 
-          run: nproc
+        run: docker build -t tonifofo/portfolio-app .
 
-  test:
-    needs: build
+      - name: List images
 
-    runs-on: ubuntu-latest
-
-    steps:
-
-        - name: hello
-
-          run: echo hello
+        run: docker images
