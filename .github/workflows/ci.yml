@@ -16,7 +16,7 @@ jobs:
 
       - name: Build image
 
-        run: docker build -t tonifofo/portfolio-app .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/portfolio-app .
 
       - name: List images
 
