@@ -9,7 +9,8 @@ jobs:
         run: uptime
       - name: Number of processor 
         run: nproc
-  test: 
+  test:
+    needs: [build] 
     runs-on: ubuntu-latest
     steps:
       - name: hello
