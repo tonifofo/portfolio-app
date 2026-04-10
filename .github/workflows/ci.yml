@@ -34,9 +34,10 @@ jobs:
             with:
               host: ${{ secrets.HOST }}
               username: ${{ secrets.SSH_USERNAME }}
-              key: ${{ secrets.PRIVATE_KEY }}
+              key: ${{ secrets.PRICKEY }}
               
               script: |
                 docker rm -f web3-portfolio || echo "Container not found, skipping removal."
+                docker rmi -f ${{secrets.DOCKER_USERNAME}}/web3-portfolio || echo "Image not exist"
                 docker run -d --name web3-portfolio -p 8080:80 ${{secrets.DOCKER_USERNAME}}/web3-portfolio 
             
